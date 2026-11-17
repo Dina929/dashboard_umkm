@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mie Jebew Admin - Pesanan</title>
+  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-yellow-50 text-gray-900">
+<div class="min-h-screen md:flex">
+
+  <aside class="w-full md:w-56 flex-shrink-0 bg-red-900 text-white p-5 flex flex-col">
+    <div class="text-center mb-8">
+      <div class="text-6xl mb-2">🍜</div>
+      <h1 class="text-2xl font-extrabold">Mie Jebew</h1>
+      <p class="text-sm">Admin Panel</p>
+    </div>
+    <nav class="space-y-2">
+      <a href="index.html" class="block hover:bg-red-700 rounded-xl p-3">🏠 Dashboard</a>
+      <a href="produk.html" class="block hover:bg-red-700 rounded-xl p-3">📦 Produk</a>
+      <a href="pesanan.html" class="block bg-red-600 rounded-xl p-3 font-bold">🛒 Pesanan</a>
+      <a href="#pelanggan" class="block hover:bg-red-700 rounded-xl p-3">👥 Pelanggan</a>
+    </nav>
+    <div class="mt-8 border-t border-red-700 pt-5">
+      <a href="index.html" class="block p-3 hover:bg-red-700 rounded-xl">↪ Logout</a>
+    </div>
+  </aside>
+
+  <main class="flex-1 min-w-0 p-5 md:p-7">
+    <header class="flex justify-between items-center mb-7">
+      <div>
+        <h2 class="text-3xl font-extrabold text-red-900">🛒 Data Pesanan</h2>
+        <p class="text-gray-600">Kelola pesanan pelanggan Mie Jebew</p>
+      </div>
+      <span class="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm">⌂ Pesanan</span>
+    </header>
+
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+      <section class="bg-white rounded-2xl shadow border border-orange-100 p-5">
+        <h3 class="text-xl font-extrabold text-red-900 mb-5">Tambah Pesanan</h3>
+
+        <form>
+          <label class="block text-sm font-bold mb-1">Nama Pelanggan <span class="text-red-600">*</span></label>
+          <input type="text" placeholder="Masukkan nama pelanggan" class="w-full border border-gray-300 rounded-lg p-3 mb-4">
+
+          <label class="block text-sm font-bold mb-1">Nomor WhatsApp</label>
+          <input type="tel" placeholder="Masukkan nomor WhatsApp" class="w-full border border-gray-300 rounded-lg p-3 mb-4">
+
+          <label class="block text-sm font-bold mb-1">Produk</label>
+          <select class="w-full border border-gray-300 rounded-lg p-3 mb-4">
+            <option>Mie Jebew - Rp10.000</option>
+            <option>Wonton Chili Oil - Rp10.000</option>
+          </select>
+
+          <label class="block text-sm font-bold mb-1">Jumlah</label>
+          <input type="number" min="1" placeholder="Masukkan jumlah" class="w-full border border-gray-300 rounded-lg p-3 mb-4">
+
+          <label class="block text-sm font-bold mb-1">Metode Pembayaran</label>
+          <select class="w-full border border-gray-300 rounded-lg p-3 mb-4">
+            <option>Transfer Bank</option>
+            <option>Tunai / COD</option>
+            <option>QRIS</option>
+          </select>
+
+          <label class="block text-sm font-bold mb-1">Catatan</label>
+          <textarea rows="2" placeholder="Catatan pesanan..." class="w-full border border-gray-300 rounded-lg p-3 mb-4"></textarea>
+
+          <label class="block text-sm font-bold mb-1">Status Pesanan</label>
+          <select class="w-full border border-gray-300 rounded-lg p-3 mb-5">
+            <option>Baru</option>
+            <option>Diproses</option>
+            <option>Selesai</option>
+          </select>
+
+          <button type="button" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold rounded-xl p-3">
+            🛒 Simpan Pesanan
+          </button>
+        </form>
+      </section>
+
+      <section class="xl:col-span-2 bg-white rounded-2xl shadow border border-orange-100 p-5">
+        <h3 class="text-xl font-extrabold text-red-900 mb-5">Daftar Pesanan</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-red-100 text-red-900">
+              <tr>
+                <th class="p-3">No</th>
+                <th class="p-3">Pelanggan</th>
+                <th class="p-3">Produk</th>
+                <th class="p-3">Jumlah</th>
+                <th class="p-3">Total</th>
+                <th class="p-3">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="p-3">1</td>
+                <td class="p-3">Dina</td>
+                <td class="p-3">Mie Jebew</td>
+                <td class="p-3">2</td>
+                <td class="p-3">Rp20.000</td>
+                <td class="p-3"><span class="bg-green-100 text-green-800 rounded-full px-2 py-1">Selesai</span></td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3">2</td>
+                <td class="p-3">Raka</td>
+                <td class="p-3">Wonton Chili Oil</td>
+                <td class="p-3">1</td>
+                <td class="p-3">Rp10.000</td>
+                <td class="p-3"><span class="bg-yellow-100 text-yellow-800 rounded-full px-2 py-1">Diproses</span></td>
+              </tr>
+              <tr>
+                <td class="p-3">3</td>
+                <td class="p-3">Salsa</td>
+                <td class="p-3">Mie Jebew</td>
+                <td class="p-3">3</td>
+                <td class="p-3">Rp30.000</td>
+                <td class="p-3"><span class="bg-blue-100 text-blue-800 rounded-full px-2 py-1">Baru</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="pelanggan" class="border-t mt-6 pt-4">
+          <h3 class="font-bold text-red-900 mb-2">👥 Informasi Pelanggan</h3>
+          <p class="text-sm text-gray-600">Data pelanggan ditampilkan melalui daftar pesanan di atas.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="text-center text-gray-500 text-sm mt-8">© 2026 Mie Jebew Admin Panel</footer>
+  </main>
+</div>
+</body>
+</html>
