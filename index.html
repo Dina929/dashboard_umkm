@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mie Jebew Admin - Dashboard</title>
+  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-yellow-50 text-gray-900">
+<div class="min-h-screen md:flex">
+
+  <aside class="w-full md:w-56 flex-shrink-0 bg-red-900 text-white p-5 flex flex-col">
+    <div class="text-center mb-8">
+      <div class="text-6xl mb-2">🍜</div>
+      <h1 class="text-2xl font-extrabold">Mie Jebew</h1>
+      <p class="text-sm">Admin Panel</p>
+    </div>
+
+    <nav class="space-y-2">
+      <a href="index.html" class="block bg-red-600 rounded-xl p-3 font-bold">🏠 Dashboard</a>
+      <a href="produk.html" class="block hover:bg-red-700 rounded-xl p-3">📦 Produk</a>
+      <a href="pesanan.html" class="block hover:bg-red-700 rounded-xl p-3">🛒 Pesanan</a>
+      <a href="pesanan.html#pelanggan" class="block hover:bg-red-700 rounded-xl p-3">👥 Pelanggan</a>
+    </nav>
+
+    <div class="mt-8 border-t border-red-700 pt-5">
+      <a href="index.html" class="block p-3 hover:bg-red-700 rounded-xl">↪ Logout</a>
+    </div>
+  </aside>
+
+  <main class="flex-1 min-w-0 p-5 md:p-7">
+    <header class="flex flex-wrap justify-between items-center mb-7">
+      <div>
+        <h2 class="text-4xl font-extrabold text-red-900">Dashboard 🌶️</h2>
+        <p class="text-gray-700 mt-1">Selamat datang di panel admin Mie Jebew!</p>
+      </div>
+      <div class="bg-red-100 text-red-900 rounded-full px-4 py-2 mt-3 text-sm font-semibold">
+        📅 Selasa, 17 November 2026
+      </div>
+    </header>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+      <div class="bg-pink-200 rounded-2xl p-5 shadow">
+        <p class="text-red-900 font-semibold">🍜 Total Produk</p>
+        <h3 class="text-4xl font-extrabold text-red-800 mt-2">2</h3>
+        <p class="text-sm text-red-800">Menu tersedia</p>
+      </div>
+      <div class="bg-orange-200 rounded-2xl p-5 shadow">
+        <p class="text-red-900 font-semibold">🛒 Total Pesanan</p>
+        <h3 class="text-4xl font-extrabold text-red-800 mt-2">25</h3>
+        <p class="text-sm text-red-800">Contoh data pesanan</p>
+      </div>
+      <div class="bg-pink-200 rounded-2xl p-5 shadow">
+        <p class="text-red-900 font-semibold">👥 Total Pelanggan</p>
+        <h3 class="text-4xl font-extrabold text-red-800 mt-2">20</h3>
+        <p class="text-sm text-red-800">Contoh data pelanggan</p>
+      </div>
+      <div class="bg-orange-200 rounded-2xl p-5 shadow">
+        <p class="text-red-900 font-semibold">💰 Pendapatan</p>
+        <h3 class="text-2xl font-extrabold text-red-800 mt-3">Rp250.000</h3>
+        <p class="text-sm text-red-800">Contoh pendapatan</p>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+      <div class="bg-white rounded-2xl shadow p-4 border border-orange-100">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-extrabold text-red-900">📈 Pesanan Terbaru</h3>
+          <a href="pesanan.html" class="text-red-700 font-semibold text-sm underline">Lihat Semua →</a>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-red-100 text-red-900">
+              <tr>
+                <th class="p-3">No</th>
+                <th class="p-3">Pelanggan</th>
+                <th class="p-3">Produk</th>
+                <th class="p-3">Total</th>
+                <th class="p-3">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="p-3">1</td>
+                <td class="p-3">Dina</td>
+                <td class="p-3">Mie Jebew</td>
+                <td class="p-3">Rp20.000</td>
+                <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">Selesai</span></td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3">2</td>
+                <td class="p-3">Raka</td>
+                <td class="p-3">Wonton</td>
+                <td class="p-3">Rp10.000</td>
+                <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Diproses</span></td>
+              </tr>
+              <tr>
+                <td class="p-3">3</td>
+                <td class="p-3">Salsa</td>
+                <td class="p-3">Mie Jebew</td>
+                <td class="p-3">Rp20.000</td>
+                <td class="p-3"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Baru</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-5 border border-orange-100">
+        <h3 class="text-xl font-extrabold text-red-900 mb-4">⭐ Produk Unggulan</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+          <div class="bg-orange-100 rounded-2xl min-h-48 flex items-center justify-center">
+            <span class="text-8xl">🍜</span>
+          </div>
+          <div>
+            <h4 class="text-2xl font-extrabold text-red-900">Mie Jebew</h4>
+            <p class="text-gray-700 my-2">Mie dengan cita rasa pedas yang nikmat dan menggugah selera.</p>
+            <p class="inline-block bg-red-800 text-white font-bold rounded-full px-5 py-2">Rp10.000</p>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs">
+              <span class="bg-red-100 text-red-800 rounded-full px-3 py-2">🌶️ Pedas</span>
+              <span class="bg-orange-100 text-orange-800 rounded-full px-3 py-2">⭐ Favorit</span>
+            </div>
+          </div>
+        </div>
+        <div class="border-t mt-5 pt-4">
+          <h4 class="font-bold text-red-900">Wonton Chili Oil</h4>
+          <p class="text-sm text-gray-600">Wonton dengan saus chili oil.</p>
+          <p class="font-bold text-red-800 mt-1">Rp10.000</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-2xl shadow border border-orange-100 p-5 mt-5">
+      <h3 class="text-xl font-bold text-red-900 mb-3">📍 Informasi UMKM</h3>
+      <p class="font-bold text-lg">Mie Jebew & Wonton Chili Oil</p>
+      <p class="text-red-800 italic mb-3">“Pedasnya Bikin Nagih!”</p>
+      <p class="mb-2">📍 Dusun Manis, Blok Pacenongan, RT 07/RW 04, Desa Laweyan, Kecamatan Sumberasih, Kabupaten Probolinggo.</p>
+      <p class="mb-2">📱 083872597129</p>
+      <p>🕔 Setiap hari, 17.00–21.00 WIB</p>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm mt-8">
+      © 2026 Mie Jebew Admin Panel
+    </footer>
+  </main>
+</div>
+</body>
+</html>
