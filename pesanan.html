@@ -1,158 +1,349 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Pesanan - Mie Jebew</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Pesanan - Mie Jebew</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="min-h-screen text-gray-800"
-style="background-image:linear-gradient(rgba(255,247,235,.35),rgba(255,247,235,45)),url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1800&q=85');background-size:cover;background-position:center;background-attachment:fixed;">
+<body class="min-h-screen bg-cover bg-center bg-fixed text-gray-800"
+style="background-image:linear-gradient(rgba(255,247,235,.65),rgba(255,247,235,.75)),url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1600&q=85');">
 
-<div class="min-h-screen flex">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-red-950 text-white p-6 hidden md:block">
+<h1 class="text-xl font-bold mb-2">🌶️ Mie Jebew</h1>
+<p class="text-xs text-red-200 mb-8">Admin Dashboard</p>
+<nav class="space-y-3">
+<a href="index.html" class="block hover:bg-red-800 rounded-lg p-3">📊 Dashboard</a>
+<a href="produk.html" class="block hover:bg-red-800 rounded-lg p-3">🍜 Data Produk</a>
+<a href="pesanan.html" class="block bg-red-800 rounded-lg p-3">📋 Data Pesanan</a>
+</nav>
+</aside>
 
-  <aside class="w-64 bg-red-950 text-white min-h-screen p-6 hidden md:block">
-    <h1 class="text-2xl font-bold">MIE JEBEW</h1>
-    <p class="text-xs text-orange-200 mt-1">WONTON CHILI OIL</p>
-    <p class="text-sm mt-3">Pedasnya Bikin Nagih!</p>
+<main class="flex-1 p-5 md:p-8">
+<h2 class="text-3xl font-bold text-red-950 mb-1">Data Pesanan</h2>
+<p class="mb-6">Kelola pesanan pelanggan Mie Jebew.</p>
 
-    <nav class="mt-10 space-y-3">
-      <a href="index.html" class="block hover:bg-red-800 rounded-xl p-3">▦ Dashboard</a>
-      <a href="produk.html" class="block hover:bg-red-800 rounded-xl p-3">▣ Produk</a>
-      <a href="pesanan.html" class="block bg-red-800 rounded-xl p-3">▤ Pesanan</a>
-    </nav>
-  </aside>
-
-  <main class="flex-1 p-5 md:p-8">
-
-    <div class="md:hidden bg-red-950 text-white rounded-xl p-4 mb-5">
-      <h1 class="text-xl font-bold">MIE JEBEW</h1>
-      <nav class="flex gap-4 mt-3 text-sm">
-        <a href="index.html">Dashboard</a>
-        <a href="produk.html">Produk</a>
-        <a href="pesanan.html">Pesanan</a>
-      </nav>
-    </div>
-
-    <header class="mb-8">
-      <p class="text-red-800 font-semibold">KELOLA TRANSAKSI</p>
-      <h2 class="text-3xl font-bold text-red-950">Data Pesanan</h2>
-      <p class="mt-1">Catat pesanan pelanggan dan lihat daftar pesanan.</p>
-    </header>
-
-    <section class="grid grid-cols-1 xl:grid-cols-5 gap-6">
-
-      <!-- FORM PESANAN -->
-      <div class="xl:col-span-2 bg-white bg-opacity-90 rounded-2xl shadow-xl p-6">
-
-        <h3 class="text-xl font-bold text-red-950 mb-5">Form Tambah Pesanan</h3>
-
-        <form>
-
-          <label class="block font-semibold text-sm mb-2">Nama Pelanggan</label>
-          <input
-            type="text"
-            placeholder="Masukkan nama pelanggan"
-            class="w-full border border-orange-200 rounded-xl p-3 mb-4">
-
-          <label class="block font-semibold text-sm mb-2">Pilih Produk</label>
-          <select class="w-full border border-orange-200 rounded-xl p-3 mb-4">
-            <option>Mie Jebew</option>
-            <option>Wonton Chili Oil</option>
-          </select>
-
-          <label class="block font-semibold text-sm mb-2">Jumlah Pesanan</label>
-          <input
-            type="number"
-            min="1"
-            placeholder="Masukkan jumlah"
-            class="w-full border border-orange-200 rounded-xl p-3 mb-4">
-
-          <label class="block font-semibold text-sm mb-2">Status Pesanan</label>
-          <select class="w-full border border-orange-200 rounded-xl p-3 mb-5">
-            <option>Menunggu</option>
-            <option>Diproses</option>
-            <option>Selesai</option>
-          </select>
-
-          <button
-            type="button"
-            class="w-full bg-red-800 hover:bg-red-900 text-white font-bold rounded-xl py-3">
-            Simpan Pesanan
-          </button>
-
-          <p class="text-xs text-gray-500 mt-3">
-            Form ini masih berupa tampilan.
-          </p>
-
-        </form>
-      </div>
-
-      <!-- TABEL PESANAN -->
-      <div class="xl:col-span-3 bg-white bg-opacity-90 rounded-2xl shadow-xl p-6 overflow-x-auto">
-
-        <h3 class="text-xl font-bold text-red-950 mb-5">Tabel Pesanan</h3>
-
-        <table class="w-full min-w-[560px] text-sm text-left">
-
-          <thead class="bg-red-950 text-white">
-            <tr>
-              <th class="p-3">No</th>
-              <th class="p-3">Pelanggan</th>
-              <th class="p-3">Produk</th>
-              <th class="p-3">Jumlah</th>
-              <th class="p-3">Total</th>
-              <th class="p-3">Status</th>
-            </tr>
-          </thead>
-
-          <tbody class="divide-y">
-
-            <tr>
-              <td class="p-4">1</td>
-              <td class="p-4">Nadia</td>
-              <td class="p-4">Mie Jebew</td>
-              <td class="p-4">1</td>
-              <td class="p-4">Rp10.000</td>
-              <td class="p-4 text-green-700">Selesai</td>
-            </tr>
-
-            <tr>
-              <td class="p-4">2</td>
-              <td class="p-4">Raka</td>
-              <td class="p-4">Wonton Chili Oil</td>
-              <td class="p-4">1</td>
-              <td class="p-4">Rp10.000</td>
-              <td class="p-4 text-yellow-700">Diproses</td>
-            </tr>
-
-            <tr>
-              <td class="p-4">3</td>
-              <td class="p-4">Sinta</td>
-              <td class="p-4">Mie Jebew</td>
-              <td class="p-4">2</td>
-              <td class="p-4">Rp20.000</td>
-              <td class="p-4 text-blue-700">Menunggu</td>
-            </tr>
-
-          </tbody>
-        </table>
-
-        <p class="text-xs text-gray-500 mt-3">
-          Data pesanan merupakan data contoh.
-        </p>
-
-      </div>
-
-    </section>
-
-    <footer class="text-center text-xs text-gray-600 mt-10">
-      © 2026 Mie Jebew & Wonton Chili Oil
-    </footer>
-
-  </main>
+<div class="md:hidden flex gap-2 mb-5">
+<a href="index.html" class="bg-white rounded-lg p-3">Dashboard</a>
+<a href="produk.html" class="bg-white rounded-lg p-3">Produk</a>
+<a href="pesanan.html" class="bg-red-900 text-white rounded-lg p-3">Pesanan</a>
 </div>
 
+<section class="bg-white/90 rounded-2xl shadow p-6 mb-7">
+<h3 class="text-xl font-bold text-red-950 mb-4">➕ Input Pesanan Baru</h3>
+
+<form id="formPesanan" class="grid md:grid-cols-2 gap-4">
+<div>
+<label class="block mb-1 font-medium">Nama Pelanggan</label>
+<input id="namaPelanggan" required class="w-full border rounded-lg p-3" placeholder="Nama pelanggan">
+</div>
+
+<div>
+<label class="block mb-1 font-medium">Nomor WhatsApp</label>
+<input id="whatsapp" type="tel" required class="w-full border rounded-lg p-3" placeholder="08xxxxxxxxxx">
+</div>
+
+<div>
+<label class="block mb-1 font-medium">Pilih Produk</label>
+<select id="pilihProduk" required class="w-full border rounded-lg p-3">
+<option value="">-- Pilih Produk --</option>
+</select>
+</div>
+
+<div>
+<label class="block mb-1 font-medium">Jumlah Pesanan</label>
+<input id="jumlah" type="number" min="1" step="1" value="1" required class="w-full border rounded-lg p-3">
+</div>
+
+<div>
+<label class="block mb-1 font-medium">Tanggal Pesanan</label>
+<input id="tanggal" type="date" required class="w-full border rounded-lg p-3">
+</div>
+
+<div>
+<label class="block mb-1 font-medium">Status Pesanan</label>
+<select id="status" class="w-full border rounded-lg p-3">
+<option>Menunggu</option>
+<option>Diproses</option>
+<option>Selesai</option>
+</select>
+</div>
+
+<div class="md:col-span-2 bg-orange-100 rounded-lg p-4">
+<p class="font-semibold">Total Harga:</p>
+<p id="totalHarga" class="text-2xl font-bold text-red-900">Rp0</p>
+</div>
+
+<button class="md:col-span-2 bg-red-900 hover:bg-red-800 text-white p-3 rounded-lg font-bold">
+Simpan Pesanan
+</button>
+</form>
+</section>
+
+<section class="bg-white/90 rounded-2xl shadow p-6">
+<h3 class="text-xl font-bold text-red-950 mb-4">📋 Daftar Pesanan</h3>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-red-900 text-white">
+<tr>
+<th class="p-3">Nama</th>
+<th class="p-3">WhatsApp</th>
+<th class="p-3">Produk</th>
+<th class="p-3">Jumlah</th>
+<th class="p-3">Total</th>
+<th class="p-3">Tanggal</th>
+<th class="p-3">Status</th>
+<th class="p-3">Aksi</th>
+</tr>
+</thead>
+<tbody id="tabelPesanan"></tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+
+<script>
+const KEY_PRODUK = "produkMieJebew";
+const KEY_PESANAN = "pesananMieJebew";
+
+function ambilProduk() {
+  try {
+    const data = JSON.parse(localStorage.getItem(KEY_PRODUK) || "null");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function ambilPesanan() {
+  try {
+    const data = JSON.parse(localStorage.getItem(KEY_PESANAN) || "null");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function simpanProduk(data) {
+  localStorage.setItem(KEY_PRODUK, JSON.stringify(data));
+}
+
+function simpanPesanan(data) {
+  localStorage.setItem(KEY_PESANAN, JSON.stringify(data));
+}
+
+function rupiah(angka) {
+  return "Rp" + Number(angka || 0).toLocaleString("id-ID");
+}
+
+function aman(teks) {
+  return String(teks ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[c]));
+}
+
+function isiPilihanProduk() {
+  const select = document.getElementById("pilihProduk");
+  const sebelumnya = select.value;
+  const produk = ambilProduk();
+
+  select.innerHTML = '<option value="">-- Pilih Produk --</option>' +
+    produk.map(p => `
+      <option value="${aman(p.id)}">
+        ${aman(p.nama)} - ${rupiah(p.harga)} (Stok: ${Number(p.stok || 0)})
+      </option>
+    `).join("");
+
+  if (produk.some(p => String(p.id) === sebelumnya)) {
+    select.value = sebelumnya;
+  }
+  hitungTotal();
+}
+
+function hitungTotal() {
+  const id = document.getElementById("pilihProduk").value;
+  const jumlah = Number(document.getElementById("jumlah").value);
+  const produk = ambilProduk().find(p => String(p.id) === String(id));
+  const total = produk && Number.isInteger(jumlah) && jumlah > 0
+    ? Number(produk.harga) * jumlah
+    : 0;
+
+  document.getElementById("totalHarga").textContent = rupiah(total);
+}
+
+document.getElementById("pilihProduk").addEventListener("change", hitungTotal);
+document.getElementById("jumlah").addEventListener("input", hitungTotal);
+
+document.getElementById("formPesanan").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const produk = ambilProduk();
+  const id = document.getElementById("pilihProduk").value;
+  const index = produk.findIndex(p => String(p.id) === String(id));
+
+  if (index === -1) {
+    alert("Silakan pilih produk terlebih dahulu.");
+    return;
+  }
+
+  const jumlah = Number(document.getElementById("jumlah").value);
+  const item = produk[index];
+
+  if (!Number.isInteger(jumlah) || jumlah <= 0) {
+    alert("Jumlah pesanan harus berupa bilangan bulat positif.");
+    return;
+  }
+
+  if (Number(item.stok) < jumlah) {
+    alert("Stok tidak mencukupi! Stok tersedia: " + item.stok);
+    return;
+  }
+
+  const nama = document.getElementById("namaPelanggan").value.trim();
+  const whatsapp = document.getElementById("whatsapp").value.trim();
+  const tanggal = document.getElementById("tanggal").value;
+  const status = document.getElementById("status").value;
+
+  if (!nama || !whatsapp || !tanggal) {
+    alert("Lengkapi semua data pesanan.");
+    return;
+  }
+
+  const harga = Number(item.harga);
+  const total = harga * jumlah;
+
+  const pesanan = ambilPesanan();
+
+  pesanan.push({
+    id: Date.now(),
+    nama,
+    whatsapp,
+    produk: item.nama,
+    produkId: item.id,
+    jumlah,
+    harga,
+    total,
+    tanggal,
+    status
+  });
+
+  item.stok = Number(item.stok) - jumlah;
+
+  simpanProduk(produk);
+  simpanPesanan(pesanan);
+
+  this.reset();
+  document.getElementById("tanggal").value = new Date().toLocaleDateString("en-CA");
+  document.getElementById("jumlah").value = 1;
+
+  isiPilihanProduk();
+  tampilkanPesanan();
+
+  alert("Pesanan berhasil disimpan!");
+});
+
+function ubahStatus(id, statusBaru) {
+  const pesanan = ambilPesanan();
+  const index = pesanan.findIndex(p => String(p.id) === String(id));
+
+  if (index === -1) return;
+
+  pesanan[index].status = statusBaru;
+  simpanPesanan(pesanan);
+  tampilkanPesanan();
+}
+
+function hapusPesanan(id) {
+  const pesanan = ambilPesanan();
+  const index = pesanan.findIndex(p => String(p.id) === String(id));
+
+  if (index === -1) {
+    alert("Pesanan tidak ditemukan.");
+    return;
+  }
+
+  if (!confirm("Yakin ingin menghapus pesanan ini? Stok produk akan dikembalikan.")) return;
+
+  const target = pesanan[index];
+  const produk = ambilProduk();
+
+  const indexProduk = produk.findIndex(
+    p => String(p.id) === String(target.produkId)
+  );
+
+  if (indexProduk !== -1) {
+    produk[indexProduk].stok =
+      (Number(produk[indexProduk].stok) || 0) + Number(target.jumlah || 0);
+    simpanProduk(produk);
+  }
+
+  pesanan.splice(index, 1);
+  simpanPesanan(pesanan);
+
+  isiPilihanProduk();
+  tampilkanPesanan();
+}
+
+function tampilkanPesanan() {
+  const pesanan = [...ambilPesanan()].sort((a,b) =>
+    new Date(b.tanggal) - new Date(a.tanggal)
+  );
+
+  const tbody = document.getElementById("tabelPesanan");
+
+  if (!pesanan.length) {
+    tbody.innerHTML = '<tr><td colspan="8" class="p-5 text-center">Belum ada pesanan.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = pesanan.map(p => `
+    <tr class="border-b">
+      <td class="p-3 font-semibold">${aman(p.nama)}</td>
+      <td class="p-3">${aman(p.whatsapp)}</td>
+      <td class="p-3">${aman(p.produk)}</td>
+      <td class="p-3">${p.jumlah}</td>
+      <td class="p-3">${rupiah(p.total)}</td>
+      <td class="p-3">${aman(p.tanggal)}</td>
+      <td class="p-3">
+        <select onchange="ubahStatus('${String(p.id)}',this.value)"
+          class="border rounded-lg p-2">
+          ${["Menunggu","Diproses","Selesai"].map(s =>
+            `<option ${p.status === s ? "selected" : ""}>${s}</option>`
+          ).join("")}
+        </select>
+      </td>
+      <td class="p-3">
+        <button onclick="hapusPesanan('${String(p.id)}')"
+          class="bg-red-700 hover:bg-red-800 text-white px-3 py-2 rounded-lg">
+          Hapus
+        </button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+document.getElementById("tanggal").value =
+  new Date().toLocaleDateString("en-CA");
+
+if (localStorage.getItem(KEY_PRODUK) === null) {
+  simpanProduk([
+    {id:1,nama:"Mie Jebew",harga:10000,stok:20,deskripsi:"Mie pedas khas Mie Jebew"},
+    {id:2,nama:"Wonton Chili Oil",harga:10000,stok:20,deskripsi:"Wonton dengan chili oil"}
+  ]);
+}
+
+isiPilihanProduk();
+tampilkanPesanan();
+
+window.addEventListener("storage", function() {
+  isiPilihanProduk();
+  tampilkanPesanan();
+});
+</script>
 </body>
 </html>
