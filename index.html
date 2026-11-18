@@ -2,288 +2,613 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Admin - Mie Jebew</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Mie Jebew</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
 </head>
 
-<body class="min-h-screen text-gray-800"
-style="background-image:linear-gradient(rgba(255,247,235,.35),rgba(255,247,235,.45)),url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1800&q=85');background-size:cover;background-position:center;background-attachment:fixed;">
+<body class="min-h-screen bg-cover bg-center bg-fixed text-gray-800"
+style="background-image:linear-gradient(rgba(255,247,235,.65),rgba(255,247,235,.75)),url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1600&q=85');">
 
-<div class="min-h-screen flex">
+<div class="flex min-h-screen">
 
-  <!-- SIDEBAR -->
-  <aside class="w-64 bg-red-950 text-white min-h-screen p-6 hidden md:block">
-    <h1 class="text-2xl font-bold">MIE JEBEW</h1>
-    <p class="text-xs text-orange-200 mt-1">WONTON CHILI OIL</p>
-    <p class="text-sm mt-3 text-orange-100">Pedasnya Bikin Nagih!</p>
+<aside class="w-64 bg-red-950 text-white p-6 hidden md:block">
+<h1 class="text-xl font-bold mb-2">🌶️ Mie Jebew</h1>
+<p class="text-xs text-red-200 mb-8">Admin Dashboard</p>
+<nav class="space-y-3">
+<a href="index.html" class="block bg-red-800 rounded-lg p-3">📊 Dashboard</a>
+<a href="produk.html" class="block hover:bg-red-800 rounded-lg p-3">🍜 Data Produk</a>
+<a href="pesanan.html" class="block hover:bg-red-800 rounded-lg p-3">📋 Data Pesanan</a>
+</nav>
+</aside>
 
-    <nav class="mt-10 space-y-3">
-      <a href="index.html" class="block bg-red-800 rounded-xl p-3">
-        ▦ Dashboard
-      </a>
+<main class="flex-1 p-5 md:p-8">
 
-      <a href="produk.html" class="block hover:bg-red-800 rounded-xl p-3">
-        ▣ Produk
-      </a>
-
-      <a href="pesanan.html" class="block hover:bg-red-800 rounded-xl p-3">
-        ▤ Pesanan
-      </a>
-    </nav>
-
-    <p class="text-xs text-orange-200 mt-20">
-      Dashboard Admin<br>Mie Jebew
-    </p>
-  </aside>
-
-  <!-- KONTEN UTAMA -->
-  <main class="flex-1 p-5 md:p-8">
-
-    <!-- NAVBAR MOBILE -->
-    <div class="md:hidden bg-red-950 text-white rounded-xl p-4 mb-5">
-      <h1 class="text-xl font-bold">MIE JEBEW</h1>
-
-      <nav class="flex gap-4 mt-3 text-sm">
-        <a href="index.html">Dashboard</a>
-        <a href="produk.html">Produk</a>
-        <a href="pesanan.html">Pesanan</a>
-      </nav>
-    </div>
-
-    <!-- HEADER -->
-    <header class="flex flex-wrap justify-between items-center mb-8 gap-3">
-      <div>
-        <p class="text-red-800 font-semibold">HALO, ADMIN!</p>
-        <h2 class="text-3xl font-bold text-red-950">Dashboard</h2>
-        <p class="text-gray-700 mt-1">
-          Ringkasan usaha Mie Jebew.
-        </p>
-      </div>
-
-      <div class="bg-white bg-opacity-90 rounded-full px-5 py-3 shadow">
-        17 November 2026
-      </div>
-    </header>
-
-    <!-- KARTU STATISTIK -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-6">
-
-      <div class="bg-orange-100 bg-opacity-95 rounded-2xl p-5 shadow">
-        <p class="text-sm text-orange-900">Total Pesanan</p>
-        <h3 class="text-3xl font-bold text-red-950 mt-2">24</h3>
-        <p class="text-xs text-gray-600 mt-2">Data Pesanan</p>
-      </div>
-
-      <div class="bg-pink-100 bg-opacity-95 rounded-2xl p-5 shadow">
-        <p class="text-sm text-pink-900">Pendapatan</p>
-        <h3 class="text-3xl font-bold text-red-950 mt-2">
-          Rp240.000
-        </h3>
-        <p class="text-xs text-gray-600 mt-2">Data Pendapatan</p>
-      </div>
-
-      <div class="bg-yellow-100 bg-opacity-95 rounded-2xl p-5 shadow">
-        <p class="text-sm text-yellow-900">Jumlah Produk</p>
-        <h3 class="text-3xl font-bold text-red-950 mt-2">2</h3>
-        <p class="text-xs text-gray-600 mt-2">Menu utama</p>
-      </div>
-
-      <div class="bg-red-100 bg-opacity-95 rounded-2xl p-5 shadow">
-        <p class="text-sm text-red-900">Jam Operasional</p>
-        <h3 class="text-2xl font-bold text-red-950 mt-2">
-          17.00–21.00
-        </h3>
-        <p class="text-xs text-gray-600 mt-2">Setiap hari</p>
-      </div>
-
-    </section>
-
-    <!-- GRAFIK PENJUALAN -->
-    <section class="bg-white bg-opacity-90 rounded-2xl shadow-xl p-5 mb-6">
-
-      <h3 class="text-xl font-bold text-red-950 mb-2">
-        Grafik Penjualan Mingguan
-      </h3>
-
-      <p class="text-xs text-gray-500 mb-5">
-        Jumlah pesanan per hari.
-      </p>
-
-      <div class="h-48 flex items-end justify-around gap-3 border-b border-l border-gray-300 px-3">
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">4</span>
-          <div class="bg-orange-500 w-8 rounded-t-lg" style="height:33%"></div>
-          <span class="text-xs mt-2">Sen</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">7</span>
-          <div class="bg-orange-500 w-8 rounded-t-lg" style="height:58%"></div>
-          <span class="text-xs mt-2">Sel</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">5</span>
-          <div class="bg-orange-500 w-8 rounded-t-lg" style="height:42%"></div>
-          <span class="text-xs mt-2">Rab</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">9</span>
-          <div class="bg-orange-500 w-8 rounded-t-lg" style="height:75%"></div>
-          <span class="text-xs mt-2">Kam</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">8</span>
-          <div class="bg-orange-500 w-8 rounded-t-lg" style="height:67%"></div>
-          <span class="text-xs mt-2">Jum</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">12</span>
-          <div class="bg-red-700 w-8 rounded-t-lg" style="height:100%"></div>
-          <span class="text-xs mt-2">Sab</span>
-        </div>
-
-        <div class="flex flex-col items-center justify-end h-full">
-          <span class="text-xs">6</span>
-          <div class="bg-orange-500 w-8 rounded-t-lg" style="height:50%"></div>
-          <span class="text-xs mt-2">Min</span>
-        </div>
-
-      </div>
-
-      <p class="text-xs text-gray-500 mt-4">
-        * Grafik merupakan data ilustrasi, belum terhubung dengan transaksi.
-      </p>
-
-    </section>
-
-    <!-- TABEL PESANAN DAN INFORMASI UMKM -->
-    <section class="grid grid-cols-1 xl:grid-cols-3 gap-6">
-
-      <!-- TABEL PESANAN -->
-      <div class="xl:col-span-2 bg-white bg-opacity-90 rounded-2xl shadow-xl p-5 overflow-x-auto">
-
-        <div class="flex justify-between mb-5 items-center">
-          <h3 class="text-xl font-bold text-red-950">
-            Pesanan Terbaru
-          </h3>
-
-          <a href="pesanan.html"
-             class="text-red-800 text-sm font-bold">
-            Lihat Semua →
-          </a>
-        </div>
-
-        <table class="w-full text-sm text-left min-w-[500px]">
-
-          <thead class="bg-red-950 text-white">
-            <tr>
-              <th class="p-3">No</th>
-              <th class="p-3">Nama</th>
-              <th class="p-3">Pesanan</th>
-              <th class="p-3">Total</th>
-              <th class="p-3">Status</th>
-            </tr>
-          </thead>
-
-          <tbody class="divide-y">
-
-            <tr>
-              <td class="p-3">1</td>
-              <td class="p-3">Nadia</td>
-              <td class="p-3">Mie Jebew</td>
-              <td class="p-3">Rp10.000</td>
-              <td class="p-3 text-green-700 font-semibold">
-                Selesai
-              </td>
-            </tr>
-
-            <tr>
-              <td class="p-3">2</td>
-              <td class="p-3">Raka</td>
-              <td class="p-3">Wonton Chili Oil</td>
-              <td class="p-3">Rp10.000</td>
-              <td class="p-3 text-yellow-700 font-semibold">
-                Diproses
-              </td>
-            </tr>
-
-            <tr>
-              <td class="p-3">3</td>
-              <td class="p-3">Sinta</td>
-              <td class="p-3">Mie Jebew</td>
-              <td class="p-3">Rp10.000</td>
-              <td class="p-3 text-green-700 font-semibold">
-                Selesai
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-
-        <p class="text-xs text-gray-500 mt-3">
-          Data transaksi.
-        </p>
-
-      </div>
-
-      <!-- INFORMASI UMKM -->
-      <div class="bg-white bg-opacity-90 rounded-2xl shadow-xl p-5">
-
-        <h3 class="text-xl font-bold text-red-950 mb-4">
-          Informasi UMKM
-        </h3>
-
-        <img
-          src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=85"
-          alt="Mi pedas"
-          class="w-full h-40 object-cover rounded-xl mb-4">
-
-        <h4 class="font-bold text-red-950">
-          Mie Jebew & Wonton Chili Oil
-        </h4>
-
-        <p class="text-sm mt-2">
-          Pedasnya Bikin Nagih!
-        </p>
-
-        <div class="border-t mt-4 pt-3 text-sm space-y-2">
-
-          <p>
-            <b>Alamat:</b>
-            Dusun Manis, Blok Pacenongan, RT 07/RW 04,
-            Desa Laweyan, Kecamatan Sumberasih,
-            Kabupaten Probolinggo.
-          </p>
-
-          <p>
-            <b>WhatsApp:</b> 083872597129
-          </p>
-
-          <p>
-            <b>Jam Buka:</b>
-            Setiap hari, 17.00–21.00 WIB
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="text-center text-xs text-gray-600 mt-10">
-      © 2026 Mie Jebew & Wonton Chili Oil
-    </footer>
-
-  </main>
+<div class="flex flex-wrap justify-between items-center gap-3 mb-7">
+<div>
+<h2 class="text-3xl font-bold text-red-950">Dashboard Admin</h2>
+<p class="text-gray-700">Mie Jebew & Wonton Chili Oil</p>
 </div>
+<span class="bg-red-900 text-white px-4 py-2 rounded-full text-sm">
+Pedasnya Bikin Nagih!
+</span>
+</div>
+
+<div class="md:hidden flex gap-2 mb-5">
+<a href="index.html" class="bg-red-900 text-white rounded-lg p-3">Dashboard</a>
+<a href="produk.html" class="bg-white rounded-lg p-3">Produk</a>
+<a href="pesanan.html" class="bg-white rounded-lg p-3">Pesanan</a>
+</div>
+
+<div class="grid sm:grid-cols-3 gap-5 mb-7">
+
+<div class="bg-white/90 rounded-2xl shadow p-6">
+<p class="text-gray-500">Total Pesanan</p>
+<h3 id="totalPesanan" class="text-3xl font-bold text-red-900 mt-2">0</h3>
+</div>
+
+<div class="bg-white/90 rounded-2xl shadow p-6">
+<p class="text-gray-500">Total Penjualan</p>
+<h3 id="totalPenjualan" class="text-3xl font-bold text-red-900 mt-2">Rp0</h3>
+</div>
+
+<div class="bg-white/90 rounded-2xl shadow p-6">
+<p class="text-gray-500">Jumlah Produk</p>
+<h3 id="totalProduk" class="text-3xl font-bold text-red-900 mt-2">0</h3>
+</div>
+
+</div>
+
+<section class="bg-white/90 rounded-2xl shadow p-6 mb-7">
+
+<div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+<h3 class="text-xl font-bold text-red-950">📈 Grafik Penjualan</h3>
+
+<select id="filterGrafik" onchange="tampilkanDashboard()"
+class="border rounded-lg p-2">
+<option value="bulanIni">Bulan Ini</option>
+<option value="bulanLalu">Bulan Lalu</option>
+<option value="tahunIni">Tahun Ini</option>
+<option value="tahunLalu">Tahun Lalu</option>
+<option value="semua">Semua Data</option>
+</select>
+</div>
+
+<canvas id="grafik" height="100"></canvas>
+</section>
+
+<section class="bg-white/90 rounded-2xl shadow p-6">
+
+<div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+<h3 class="text-xl font-bold text-red-950">📋 Pesanan Terbaru</h3>
+
+<button onclick="downloadExcel()"
+class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg">
+⬇ Download Laporan Excel
+</button>
+</div>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-red-900 text-white">
+<tr>
+<th class="p-3">Nama</th>
+<th class="p-3">WhatsApp</th>
+<th class="p-3">Produk</th>
+<th class="p-3">Jumlah</th>
+<th class="p-3">Total</th>
+<th class="p-3">Tanggal</th>
+<th class="p-3">Status</th>
+</tr>
+</thead>
+<tbody id="tabelTerbaru"></tbody>
+</table>
+</div>
+
+</section>
+</main>
+</div>
+
+<script>
+
+function ambilPesanan() {
+  try {
+    const data = JSON.parse(localStorage.getItem("pesananMieJebew") || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function ambilProduk() {
+  try {
+    const data = JSON.parse(localStorage.getItem("produkMieJebew") || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function rupiah(angka) {
+  return "Rp" + Number(angka || 0).toLocaleString("id-ID");
+}
+
+function aman(teks) {
+  return String(teks ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  }[c]));
+}
+
+function tanggalValid(tanggal) {
+  const d = new Date(tanggal);
+  return isNaN(d) ? null : d;
+}
+
+function sesuaiFilter(tanggal, filter) {
+  const d = tanggalValid(tanggal);
+  if (!d) return false;
+
+  const sekarang = new Date();
+
+  if (filter === "bulanIni") {
+    return d.getMonth() === sekarang.getMonth() &&
+      d.getFullYear() === sekarang.getFullYear();
+  }
+
+  if (filter === "bulanLalu") {
+    const lalu = new Date(
+      sekarang.getFullYear(),
+      sekarang.getMonth() - 1,
+      1
+    );
+
+    return d.getMonth() === lalu.getMonth() &&
+      d.getFullYear() === lalu.getFullYear();
+  }
+
+  if (filter === "tahunIni") {
+    return d.getFullYear() === sekarang.getFullYear();
+  }
+
+  if (filter === "tahunLalu") {
+    return d.getFullYear() === sekarang.getFullYear() - 1;
+  }
+
+  return true;
+}
+
+function gambarGrafik(data) {
+  const canvas = document.getElementById("grafik");
+  const ctx = canvas.getContext("2d");
+
+  const rasio = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth;
+  const h = 260;
+
+  canvas.width = w * rasio;
+  canvas.height = h * rasio;
+
+  ctx.setTransform(rasio, 0, 0, rasio, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+
+  const maksimum = Math.max(...data.map(x => x.total), 10000);
+  const jarak = (w - 50) / Math.max(data.length, 1);
+
+  for (let i = 0; i < 5; i++) {
+    const y = 20 + i * 48;
+    ctx.beginPath();
+    ctx.strokeStyle = "#eadbd4";
+    ctx.moveTo(35, y);
+    ctx.lineTo(w - 10, y);
+    ctx.stroke();
+  }
+
+  data.forEach((item, i) => {
+    const tinggiBar = (item.total / maksimum) * 170;
+    const x = 40 + i * jarak;
+    const y = 210 - tinggiBar;
+    const barWidth = Math.max(5, Math.min(35, jarak * 0.5));
+
+    const grad = ctx.createLinearGradient(0, y, 0, 210);
+    grad.addColorStop(0, "#991b1b");
+    grad.addColorStop(1, "#f59e0b");
+
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(x, y, barWidth, tinggiBar, 6);
+    ctx.fill();
+
+    ctx.fillStyle = "#4b2525";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(item.label, x + barWidth / 2, 230);
+  });
+}
+
+function tampilkanDashboard() {
+  const pesanan = ambilPesanan();
+  const produk = ambilProduk();
+
+  document.getElementById("totalPesanan").textContent = pesanan.length;
+  document.getElementById("totalProduk").textContent = produk.length;
+
+  const total = pesanan.reduce(
+    (a, b) => a + Number(b.total || 0), 0
+  );
+
+  document.getElementById("totalPenjualan").textContent = rupiah(total);
+
+  const terbaru = [...pesanan].sort((a, b) =>
+    new Date(b.tanggal) - new Date(a.tanggal)
+  ).slice(0, 5);
+
+  document.getElementById("tabelTerbaru").innerHTML =
+    terbaru.length
+      ? terbaru.map(p => `
+        <tr class="border-b">
+          <td class="p-3">${aman(p.nama)}</td>
+          <td class="p-3">${aman(p.whatsapp)}</td>
+          <td class="p-3">${aman(p.produk)}</td>
+          <td class="p-3">${Number(p.jumlah || 0)}</td>
+          <td class="p-3">${rupiah(p.total)}</td>
+          <td class="p-3">${aman(p.tanggal)}</td>
+          <td class="p-3">${aman(p.status)}</td>
+        </tr>
+      `).join("")
+      : '<tr><td colspan="7" class="p-5 text-center">Belum ada pesanan.</td></tr>';
+
+  const filter = document.getElementById("filterGrafik").value;
+  const terpilih = pesanan.filter(p => sesuaiFilter(p.tanggal, filter));
+
+  let data = [];
+
+  if (filter === "bulanIni" || filter === "bulanLalu") {
+    const sekarang = new Date();
+    const bulan = filter === "bulanIni"
+      ? sekarang.getMonth()
+      : sekarang.getMonth() - 1;
+
+    const tanggalAcuan = new Date(sekarang.getFullYear(), bulan, 1);
+    const tahun = tanggalAcuan.getFullYear();
+    const bulanAcuan = tanggalAcuan.getMonth();
+
+    const jumlahHari = new Date(tahun, bulanAcuan + 1, 0).getDate();
+
+    data = Array.from({length: jumlahHari}, (_, i) => ({
+      label: String(i + 1),
+      total: terpilih.filter(p => {
+        const d = tanggalValid(p.tanggal);
+        return d &&
+          d.getDate() === i + 1 &&
+          d.getMonth() === bulanAcuan &&
+          d.getFullYear() === tahun;
+      }).reduce((a, b) => a + Number(b.total || 0), 0)
+    }));
+
+  } else if (filter === "tahunIni" || filter === "tahunLalu") {
+    const tahun = filter === "tahunIni"
+      ? new Date().getFullYear()
+      : new Date().getFullYear() - 1;
+
+    data = Array.from({length: 12}, (_, i) => ({
+      label: [
+        "Jan","Feb","Mar","Apr","Mei","Jun",
+        "Jul","Agu","Sep","Okt","Nov","Des"
+      ][i],
+      total: terpilih.filter(p => {
+        const d = tanggalValid(p.tanggal);
+        return d && d.getMonth() === i && d.getFullYear() === tahun;
+      }).reduce((a, b) => a + Number(b.total || 0), 0)
+    }));
+
+  } else {
+    const tahunList = [
+      ...new Set(terpilih.map(p => {
+        const d = tanggalValid(p.tanggal);
+        return d ? d.getFullYear() : null;
+      }).filter(Boolean))
+    ].sort();
+
+    data = tahunList.map(tahun => ({
+      label: String(tahun),
+      total: terpilih.filter(p => {
+        const d = tanggalValid(p.tanggal);
+        return d && d.getFullYear() === tahun;
+      }).reduce((a, b) => a + Number(b.total || 0), 0)
+    }));
+  }
+
+  gambarGrafik(data);
+}
+
+function downloadExcel() {
+  const pesanan = ambilPesanan();
+
+  if (pesanan.length === 0) {
+    alert("Belum ada data pesanan untuk didownload!");
+    return;
+  }
+
+  if (typeof XLSX === "undefined") {
+    alert("Library Excel belum berhasil dimuat. Periksa koneksi internet lalu muat ulang halaman.");
+    return;
+  }
+
+  const data = [
+    ["LAPORAN DATA PESANAN"],
+    ["MIE JEBEW & WONTON CHILI OIL"],
+    ["Pedasnya Bikin Nagih!"],
+    ["Dusun Manis, Blok Pacenongan, RT 07/RW 04"],
+    ["Desa Laweyan, Kecamatan Sumberasih, Kabupaten Probolinggo"],
+    ["WhatsApp: 083872597129"],
+    [],
+    [
+      "NO",
+      "ID PESANAN",
+      "NAMA PELANGGAN",
+      "NOMOR WHATSAPP",
+      "NAMA PRODUK",
+      "JUMLAH",
+      "HARGA SATUAN",
+      "TOTAL HARGA",
+      "TANGGAL PESANAN",
+      "STATUS PESANAN"
+    ]
+  ];
+
+  let totalPenjualan = 0;
+  let totalProduk = 0;
+
+  pesanan.forEach((p, index) => {
+    const jumlah = Number(p.jumlah || 0);
+    const harga = Number(p.harga || 0);
+    const total = Number(p.total ?? harga * jumlah);
+
+    totalPenjualan += total;
+    totalProduk += jumlah;
+
+    data.push([
+      index + 1,
+      p.id || "-",
+      p.nama || "-",
+      p.whatsapp || "-",
+      p.produk || "-",
+      jumlah,
+      harga,
+      total,
+      p.tanggal || "-",
+      p.status || "-"
+    ]);
+  });
+
+  const barisHeader = 7;
+  const barisAwalData = 8;
+  const barisAkhirData = barisAwalData + pesanan.length - 1;
+  const barisRingkasan = barisAkhirData + 2;
+
+  data.push([]);
+  data.push(["RINGKASAN LAPORAN"]);
+  data.push(["Total Transaksi", pesanan.length]);
+  data.push(["Total Produk Terjual", totalProduk]);
+  data.push(["Total Penjualan", totalPenjualan]);
+  data.push(["Tanggal Download", new Date().toLocaleString("id-ID")]);
+
+  const ws = XLSX.utils.aoa_to_sheet(data);
+
+  ws["!merges"] = [
+    {s:{r:0,c:0},e:{r:0,c:9}},
+    {s:{r:1,c:0},e:{r:1,c:9}},
+    {s:{r:2,c:0},e:{r:2,c:9}},
+    {s:{r:3,c:0},e:{r:3,c:9}},
+    {s:{r:4,c:0},e:{r:4,c:9}},
+    {s:{r:5,c:0},e:{r:5,c:9}},
+    {s:{r:barisRingkasan,c:0},e:{r:barisRingkasan,c:9}}
+  ];
+
+  ws["!cols"] = [
+    {wch:6},
+    {wch:18},
+    {wch:23},
+    {wch:20},
+    {wch:24},
+    {wch:10},
+    {wch:18},
+    {wch:18},
+    {wch:18},
+    {wch:18}
+  ];
+
+  ws["!rows"] = [];
+  ws["!rows"][0] = {hpt:30};
+  ws["!rows"][1] = {hpt:23};
+  ws["!rows"][2] = {hpt:20};
+  ws["!rows"][barisHeader] = {hpt:30};
+  ws["!rows"][barisRingkasan] = {hpt:25};
+
+  ws["A1"].s = {
+    font:{bold:true,sz:18,color:{rgb:"FFFFFF"}},
+    fill:{fgColor:{rgb:"7F1D1D"}},
+    alignment:{horizontal:"center",vertical:"center"}
+  };
+
+  ws["A2"].s = {
+    font:{bold:true,sz:14,color:{rgb:"991B1B"}},
+    alignment:{horizontal:"center",vertical:"center"}
+  };
+
+  ws["A3"].s = {
+    font:{italic:true,sz:11,color:{rgb:"B45309"}},
+    alignment:{horizontal:"center"}
+  };
+
+  ["A4","A5","A6"].forEach(cell => {
+    ws[cell].s = {
+      font:{color:{rgb:"555555"},sz:10},
+      alignment:{horizontal:"center"}
+    };
+  });
+
+  for (let c = 0; c < 10; c++) {
+    const cell = XLSX.utils.encode_cell({
+      r:barisHeader,
+      c
+    });
+
+    ws[cell].s = {
+      font:{
+        bold:true,
+        color:{rgb:"FFFFFF"},
+        sz:10
+      },
+      fill:{
+        fgColor:{rgb:"991B1B"}
+      },
+      alignment:{
+        horizontal:"center",
+        vertical:"center",
+        wrapText:true
+      },
+      border:{
+        top:{style:"thin",color:{rgb:"7F1D1D"}},
+        bottom:{style:"thin",color:{rgb:"7F1D1D"}},
+        left:{style:"thin",color:{rgb:"FFFFFF"}},
+        right:{style:"thin",color:{rgb:"FFFFFF"}}
+      }
+    };
+  }
+
+  for (let r = barisAwalData; r <= barisAkhirData; r++) {
+    ws["!rows"][r] = {hpt:23};
+
+    for (let c = 0; c < 10; c++) {
+      const cell = XLSX.utils.encode_cell({r,c});
+
+      if (!ws[cell]) continue;
+
+      ws[cell].s = {
+        font:{
+          sz:10,
+          color:{rgb:"333333"}
+        },
+        fill:{
+          fgColor:{
+            rgb:(r - barisAwalData) % 2 === 0
+              ? "FFF7ED"
+              : "FFFFFF"
+          }
+        },
+        alignment:{
+          vertical:"center",
+          horizontal:[0,5,6,7].includes(c)
+            ? "center"
+            : "left"
+        },
+        border:{
+          top:{style:"thin",color:{rgb:"E5CFC5"}},
+          bottom:{style:"thin",color:{rgb:"E5CFC5"}},
+          left:{style:"thin",color:{rgb:"E5CFC5"}},
+          right:{style:"thin",color:{rgb:"E5CFC5"}}
+        }
+      };
+
+      if (c === 6 || c === 7) {
+        ws[cell].z = '"Rp" #,##0';
+      }
+    }
+  }
+
+  // JUDUL RINGKASAN
+  const cellRingkasan = XLSX.utils.encode_cell({
+    r:barisRingkasan,
+    c:0
+  });
+
+  ws[cellRingkasan].s = {
+    font:{
+      bold:true,
+      color:{rgb:"FFFFFF"},
+      sz:12
+    },
+    fill:{
+      fgColor:{rgb:"7F1D1D"}
+    },
+    alignment:{
+      horizontal:"center",
+      vertical:"center"
+    }
+  };
+
+  // ISI RINGKASAN
+  for (let r = barisRingkasan + 1; r <= barisRingkasan + 4; r++) {
+    for (let c = 0; c <= 1; c++) {
+      const cell = XLSX.utils.encode_cell({r,c});
+
+      if (!ws[cell]) continue;
+
+      ws[cell].s = {
+        font:{
+          bold:c === 0 || r === barisRingkasan + 3,
+          color:{rgb:"333333"}
+        },
+        fill:{
+          fgColor:{rgb:"FFF1E6"}
+        },
+        border:{
+          top:{style:"thin",color:{rgb:"E5CFC5"}},
+          bottom:{style:"thin",color:{rgb:"E5CFC5"}},
+          left:{style:"thin",color:{rgb:"E5CFC5"}},
+          right:{style:"thin",color:{rgb:"E5CFC5"}}
+        },
+        alignment:{vertical:"center"}
+      };
+    }
+  }
+
+  const selTotal = XLSX.utils.encode_cell({
+    r:barisRingkasan + 3,
+    c:1
+  });
+
+  ws[selTotal].z = '"Rp" #,##0';
+
+  ws["!freeze"] = {
+    xSplit:0,
+    ySplit:8,
+    topLeftCell:"A9",
+    activePane:"bottomLeft",
+    state:"frozen"
+  };
+
+  ws["!autofilter"] = {
+    ref:`A8:J${barisAkhirData}`
+  };
+
+  const wb = XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(
+    wb,
+    ws,
+    "Laporan Pesanan"
+  );
+
+  XLSX.writeFile(
+    wb,
+    "Laporan_Pesanan_Mie_Jebew.xlsx"
+  );
+}
+
+window.addEventListener("storage", tampilkanDashboard);
+window.addEventListener("resize", tampilkanDashboard);
+
+tampilkanDashboard();
+
+</script>
 
 </body>
 </html>
